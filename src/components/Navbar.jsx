@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
+import { useState } from "react";
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className="w-full fixed top-0 left-0 bg-white shadow z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
@@ -15,11 +18,11 @@ const Navbar = () => {
         </div>
         {/* Navigation Links */}
         <div className="hidden md:flex gap-8 text-gray-700 font-medium">
-          <a href="#" className="hover:text-primary">Home</a>
-          <a href="#about" className="hover:text-primary">About</a>
-          <a href="#services" className="hover:text-primary">Services</a>
-          <a href="#projects" className="hover:text-primary">Projects</a>
-          <a href="#contact" className="hover:text-primary">Contact</a>
+          <Link to="/" className="hover:text-primary">Home</Link>
+          <Link to="/pricing" className="hover:text-primary">Pricing</Link>
+          <Link to="/contact" className="hover:text-primary">Contact</Link>
+          <Link to="/careers" className="hover:text-primary">Careers</Link>
+          <Link to="/blog" className="hover:text-primary">Blog</Link>
         </div>
         {/* CTA Button */}
         <div className="hidden md:block">
@@ -27,14 +30,31 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <button>
+          <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
       </div>
-    </nav>
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex flex-col">
+          <div className="bg-white w-11/12 max-w-xs h-full shadow-lg p-8 flex flex-col gap-6 animate-slideInLeft">
+            <button onClick={() => setMenuOpen(false)} className="self-end mb-4" aria-label="Close menu">
+              <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <Link to="/" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/pricing" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Pricing</Link>
+            <Link to="/contact" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Contact</Link>
+            <Link to="/careers" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Careers</Link>
+            <Link to="/blog" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Blog</Link>
+          </div>
+        </div>
+      )}
+     </nav>
   );
 };
 
