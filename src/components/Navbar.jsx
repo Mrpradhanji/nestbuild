@@ -21,12 +21,12 @@ const Navbar = () => {
           <Link to="/" className="hover:text-primary">Home</Link>
           <Link to="/pricing" className="hover:text-primary">Pricing</Link>
           <Link to="/contact" className="hover:text-primary">Contact</Link>
-          <Link to="/careers" className="hover:text-primary">Careers</Link>
+  
           <Link to="/blog" className="hover:text-primary">Blog</Link>
         </div>
         {/* CTA Button */}
         <div className="hidden md:block">
-          <a href="#contact" className="bg-primary text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-primary-dark transition">Get In Touch</a>
+          <Link to="/contact" className="bg-primary text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-primary-dark transition">Get In Touch</Link>
         </div>
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
@@ -39,7 +39,7 @@ const Navbar = () => {
       </div>
       {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex flex-col">
+        <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex flex-col">
           <div className="bg-white w-11/12 max-w-xs h-full shadow-lg p-8 flex flex-col gap-6 animate-slideInLeft">
             <button onClick={() => setMenuOpen(false)} className="self-end mb-4" aria-label="Close menu">
               <svg width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@ const Navbar = () => {
             <Link to="/" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Home</Link>
             <Link to="/pricing" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Pricing</Link>
             <Link to="/contact" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Contact</Link>
-            <Link to="/careers" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Careers</Link>
+
             <Link to="/blog" className="text-lg font-semibold hover:text-primary" onClick={() => setMenuOpen(false)}>Blog</Link>
           </div>
         </div>

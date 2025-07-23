@@ -5,7 +5,7 @@ import { Navbar, Footer } from './components';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
-import Careers from './pages/Careers';
+
 import Blog from './pages/Blog';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/careers" element={<Careers />} />
+        
         <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />

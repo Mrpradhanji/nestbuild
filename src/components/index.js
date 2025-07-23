@@ -6,3 +6,4 @@ export { default as ProjectsSection } from "./ProjectsSection";
 export { default as TestimonialsSection } from "./TestimonialsSection";
 export { default as ContactSection } from "./ContactSection";
 export { default as Footer } from "./Footer";
+export { default as EstimateForm } from "./EstimateForm";
